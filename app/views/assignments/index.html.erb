@@ -1,0 +1,22 @@
+<h2> listing of all articles </h2>
+<p>
+<%= link_to "new article", new_assignment_path %>
+</p>
+<table>
+
+ <tr>
+  <th> Title</th>
+  <th> Description</th>
+</tr>
+
+<% @assignments.each do |f| %>
+  
+  <tr>
+    
+  <td> <%= f.title %> </td>
+   <td> <%= f.description %> </td>
+   <td> <%= link_to "edit", edit_assignment_path(f) %> </td>
+      <td> <%= link_to "show", assignment_path(f)%> </td>
+   </tr>
+   <% end %>
+</table>

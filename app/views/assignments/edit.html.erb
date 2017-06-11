@@ -1,18 +1,19 @@
-<h1> create an assignment </h1>
+<h3>editing existing article</h3>
+
 
 <% if @assignment.errors.any? %>
+
 <h3> the following errors prevent the article from getting created</h3>
 
    <ul> <% @assignment.errors.full_messages.each do |msg| %>
-     <li> <%= msg %> </li>
+  <li> <%= msg %> </li>
    <% end %>
    </ul>
-<% end %>
+    <% end %>
 
 <%= form_for @assignment do |g| %>
 
 <p> 
-
 <%= g.label :title %></br>
 <%= g.text_field :title %>
 </p>
@@ -28,4 +29,5 @@
 </p>
   
 <% end %>
+
 <%= link_to "Back", assignments_path %>

@@ -1,13 +1,6 @@
-<h1>Showing selected article</h1>
+<h1>Showing selected assignment</h1>
 
-<p>
 
-Title: <%= @assignment.title %>
+<%= link_to "edit", edit_assignments_path(@assignment) %> |
+<%= link_to "Back", assignments_path %>
 
-</p>
-
-<p>
-
-Description: <%= @assignment.description %>
-
-</p>
