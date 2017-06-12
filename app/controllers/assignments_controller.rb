@@ -35,12 +35,20 @@ class AssignmentsController < ApplicationController
             render 'edit'
           end
     end
-        private
-         def assignment_params
-         params.require(:assignment).permit(:title, :description) 
-        end
+       
 
      def show
     @assignment = Assignment.find(params[:id])
   end
+  
+  def destroy
+    @assignment = Assignment.find(params[:id])
+    @assignment.destroy
+    flash[:notice] = "Article was succesfully destroyed"
+    redirect_to assignments_path
+  end
+   private
+         def assignment_params
+         params.require(:assignment).permit(:title, :description) 
+        end
 end
