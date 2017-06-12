@@ -1,5 +1,7 @@
 class AssignmentsController < ApplicationController
   
+  before_action :set_assignment, only: [:edit, :update, :show, :destroy]
+  
   def index
    @assignments = Assignment.all 
   end
@@ -8,8 +10,8 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new
   end
   
-   def edit
-    @assignment = Assignment.find(params[:id]) 
+  def edit
+  
   end
   
   def create
@@ -26,8 +28,8 @@ class AssignmentsController < ApplicationController
      end
     end
     
-       def update
-       @assignment = Assignment.find(params[:id])
+  def update
+     
           if @assignment.update(assignment_params)
             flash[:notice] = "Article was successfully updated"
             redirect_to assignment_path(@assignment)
@@ -38,16 +40,21 @@ class AssignmentsController < ApplicationController
        
 
      def show
-    @assignment = Assignment.find(params[:id])
+    
   end
   
   def destroy
-    @assignment = Assignment.find(params[:id])
+   
     @assignment.destroy
     flash[:notice] = "Article was succesfully destroyed"
     redirect_to assignments_path
   end
    private
+  
+   def set_assignment
+      @assignment = Assignment.find(params[:id])
+   end
+   
          def assignment_params
          params.require(:assignment).permit(:title, :description) 
         end
