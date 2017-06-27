@@ -1,6 +1,6 @@
-<h2> listing of all articles </h2>
+<h2> listing of all assignments </h2>
 <p>
-<%= link_to "new article", new_assignment_path %>
+<%= link_to "new assignment", new_assignment_path %>
 </p>
 <table>
 
@@ -15,9 +15,9 @@
     
   <td> <%= f.title %> </td>
    <td> <%= f.description %> </td>
-   <td> <%= link_to "edit", edit_assignment_path(f) %> </td>
-      <td> <%= link_to "show", assignment_path(f)%> </td>
-      <td> <%= link_to "destroy", assignment_path(f), method: :delete, data: {confirm: "Are you sure?"} %> </td>
+   <td> <%= link_to " Edit |", edit_assignment_path(f) %> </td>
+      <td> <%= link_to "Show |", assignment_path(f)%> </td>
+      <td> <%= link_to "Destroy ", assignment_path(f), method: :delete, data: {confirm: "Are you sure?"} %> </td>
    </tr>
    <% end %>
 </table>
