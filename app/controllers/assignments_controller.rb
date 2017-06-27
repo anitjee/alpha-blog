@@ -20,7 +20,7 @@ class AssignmentsController < ApplicationController
   @assignment = Assignment.new(assignment_params)
   
     if @assignment.save
-       flash[:notice] = "Article was successfully created"
+       flash[:success] = "Article was successfully created"
        redirect_to assignment_path(@assignment) #redirect to show action
   
      else
@@ -31,7 +31,7 @@ class AssignmentsController < ApplicationController
   def update
      
           if @assignment.update(assignment_params)
-            flash[:notice] = "Article was successfully updated"
+            flash[:success] = "Article was successfully updated"
             redirect_to assignment_path(@assignment)
           else
             render 'edit'
@@ -46,7 +46,7 @@ class AssignmentsController < ApplicationController
   def destroy
    
     @assignment.destroy
-    flash[:notice] = "Article was succesfully destroyed"
+    flash[:danger] = "Article was succesfully destroyed"
     redirect_to assignments_path
   end
    private
